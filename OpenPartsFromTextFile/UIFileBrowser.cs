@@ -64,6 +64,11 @@ namespace OpenPartsFromTextFile
                 theSession = Session.GetSession();
                 theUI = UI.GetUI();
 
+                if ( theSession.Parts.Work==null )
+                {
+                    theUI.NXMessageBox.Show("Validate", NXMessageBox.DialogType.Error, "Block UI Styler only works when a part is open, please open a part and re-launch application");
+                }
+
                 string folderPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 string assemblyPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
 
@@ -241,7 +246,7 @@ namespace OpenPartsFromTextFile
             try
             {
                 //---- Enter your callback code here -----
-                Globals.textFilePath = nativeFileBrowser0.Path;
+                Globals.TextFilePath = nativeFileBrowser0.Path;
 
             }
             catch (Exception ex)

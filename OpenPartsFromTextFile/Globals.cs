@@ -8,6 +8,20 @@ namespace OpenPartsFromTextFile
 {
     public class Globals
     {
-        public static string textFilePath=string.Empty;
+        private static string _textFilePath;
+        public static string TextFilePath
+        {
+            get { return _textFilePath; }
+            set { _textFilePath = value; }
+        }
+        
+        private static bool _isMultiPart;
+        public static bool IsMultiPart
+        {
+            get { return _isMultiPart; }
+            set { _isMultiPart = value; }
+        }
+
+        //public static string TextFilePath=string.Empty;
     }
 }
